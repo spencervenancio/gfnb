@@ -4,7 +4,7 @@ These are the notes for my workshop titled *Graduating from Notebooks* given on 
 
 **Background.** This workshop assumes that you know either `R` or `python`, and have performed some sort of data analysis in that language (Ex. *linear regression*). I will teach this workshop in `python`, but will try my best to talk about the higher level ideas which generalize to `R`.
 
-**Structure.**  Source Files $\rightarrow$ Project Structure$\rightarrow$Git$\rightarrow$GitHub
+**Structure.**  Source Files $\rightarrow$ Project Structure $\rightarrow$ Git $\rightarrow$ GitHub
 
 ### 1. Source Files
 ----- 
@@ -15,18 +15,18 @@ You might be used to working in Jupyter Notebook. You might also be thinking som
 > I've used Jupyter Notebooks (`.ipynb`) or R Markdown (`.rmd`) for all of my statistics/data science courses. And now you're telling me this isn't enough? What with that?
 
 To motivate this, let's take a look at `diabetes.ipynb`. We can see that it does a few things: 
- 1. Uses the [`load_diabetes`](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) function to load `X` as a `pd.DataFrame` and `y` as a `pd.Series`. 
+ 1. Uses the [`load_diabetes`](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) function to load `X` as a [`pd.DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) and `y` as a [`pd.Series`](https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series). 
  2. Displays them for verification
- 3. Performs a `train_test_split`
- 4. Fits a `LinearRegression` model using the testing data.
+ 3. Performs a [`train_test_split`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
+ 4. Fits a [`LinearRegression`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html) model using the testing data.
  5. Makes predictions using the testing data
- 6. Uses `root_mean_squared_error` to calculate the test loss: 
+ 6. Uses [`root_mean_squared_error`](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.root_mean_squared_error.html#sklearn.metrics.root_mean_squared_error) to calculate the test loss: 
 
 $$\mathrm{RMSE}=\sqrt{\frac{\sum_{i=1}^n (\hat y_i- y_i)^2}{n}} $$
 
 But then you remember that you should rescale (normalize) your `X` matrix, so that all of your features are on the same scale. So you go ahead and add: 
 
- 7. Use `StandardScaler` to rescale the data to have mean $0$ and variance $1$.
+ 7. Use [`StandardScaler`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler) to rescale the data to have mean $0$ and variance $1$.
 
 **To see where this is headed:** notice how things are already getting disorganized. *Imagine what happens if you want to extend this, or collaborate with another person?* What happens when: 
 
@@ -115,7 +115,7 @@ It will then ask you some questions. The barebones answers will create a project
 ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
 │                         generated with `pip freeze > requirements.txt`
 │
-└── data_challenge   <- Source code for use in this project.
+└── demo   <- Source code for use in this project.
     │
     ├── __init__.py             <- Makes data_challenge a Python module
     │
@@ -132,6 +132,10 @@ It will then ask you some questions. The barebones answers will create a project
     │
     └── plots.py                <- Code to create visualizations
 ```
+
+`ccds` is a really great resource, because it will teach you about how to structure a project well **while** you use it to build a project. 
+
+We won't go over the details details of the `Makefile`, `pyproject.toml`, and some of the other packages they eencourage but let's take a closer look at the source code directory: `demo/` 
 
 
 ### 3. Git
