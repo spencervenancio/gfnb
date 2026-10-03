@@ -14,7 +14,7 @@ These are the notes for my workshop titled *Graduating from Notebooks* given on 
 You might be used to working in Jupyter Notebook. You might also be thinking something like
 > I've used Jupyter Notebooks (`.ipynb`) or R Markdown (`.rmd`) for all of my statistics/data science courses. And now you're telling me this isn't enough? What with that?
 
-To motivate this, let's take a look at `diabetes.ipynb`. We can see that it does a few things: 
+To motivate this, let's take a look at [`diabetes.ipynb`](diabetes.ipynb). We can see that it does a few things: 
  1. Uses the [`load_diabetes`](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) function to load `X` as a [`pd.DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) and `y` as a [`pd.Series`](https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series). 
  2. Displays them for verification
  3. Performs a [`train_test_split`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
