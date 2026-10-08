@@ -8,7 +8,7 @@ pandas
 pip
 python-dotenv
 ruff
-scikit-learn
+scikit-learn>=1.4  # root_mean_squared_error was added in 1.4
 tqdm
 typer
 -e .

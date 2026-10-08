@@ -25,7 +25,8 @@ def main(
     # Train/Test Split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-    # Save to the PROCESSED_DATA_DIR
+    # Save to the RAW_DATA_DIR (data/ is gitignored, so it may not exist yet)
+    output_dir.mkdir(parents=True, exist_ok=True)
     X_train.to_csv(output_dir / "X_train.csv")
     X_test.to_csv(output_dir / "X_test.csv")
     y_train.to_csv(output_dir / "y_train.csv")

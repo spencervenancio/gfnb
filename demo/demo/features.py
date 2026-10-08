@@ -37,6 +37,7 @@ def main(
     )
 
     # Save the transformed data
+    output_dir.mkdir(parents=True, exist_ok=True)
     X_train_transformed.to_csv(output_dir / "X_train_trans.csv")
     X_test_transformed.to_csv(output_dir / "X_test_trans.csv")
 
