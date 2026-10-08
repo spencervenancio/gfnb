@@ -186,12 +186,31 @@ It will then ask you some questions. The barebones answers will create a project
 
 We won't go over the details of the `Makefile`, `pyproject.toml`, and some of the other packages they encourage but let's take a closer look at the source code directory: `demo/` 
 
-Each file does exactly one step, and each step reads the previous step's output from `data/`. This is the "data analysis is a DAG" idea in action:
+Each file does exactly one step, and each step reads earlier steps' outputs from `data/` and `models/`. This is the "data analysis is a DAG" idea in action. Notice the labels (`y_train`, `y_test`) skip `features.py` entirely: we only scale the features, so `train.py` and `predict.py` read the labels straight from `data/raw/`.
 
 ```
-dataset.py ──> data/raw/ ──> features.py ──> data/processed/ ──> train.py ──> models/model.joblib
-                  │                               │                                   │
-                  └───────────────────────────────┴──────────────> predict.py <───────┘
+dataset.py
+    │
+    v
+data/raw/ ────────────────────────────────────┐
+    │ X_train, X_test                         │ y_train, y_test
+    v                                         │
+features.py                                   │
+    │                                         │
+    v                                         │
+data/processed/ ──────────────┐               │
+    │ X_train_trans           │ X_test_trans  │
+    v                         │               │
+train.py <────────────────────┼───────────────┤ y_train
+    │                         │               │
+    v                         │               │
+models/model.joblib           │               │
+    │                         │               │
+    v                         │               │
+predict.py <──────────────────┴───────────────┘ y_test
+    │
+    v
+data/processed/y_pred.csv + printed RMSE
 ```
 
 So you run them in order, from inside `demo/`:
