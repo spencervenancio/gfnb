@@ -6,7 +6,7 @@ These are the notes for my workshop titled *Graduating from Notebooks* given on 
 
 **Structure.**  Setup $\rightarrow$ Source Files $\rightarrow$ Project Structure $\rightarrow$ Git $\rightarrow$ GitHub
 
-### 0. Setup (please do this before the workshop)
+### 0. Setup 
 -----
 
 You'll get the most out of this if you can run every command along with me. All you need is a terminal (Terminal on macOS, Git Bash or WSL on Windows), [Git](https://git-scm.com/downloads), and either Python 3.10+ or R 4.1+.
